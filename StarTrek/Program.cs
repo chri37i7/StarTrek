@@ -10,6 +10,16 @@ namespace StarTrek
 
         static void Main()
         {
+            // Write startup message
+            Console.WriteLine("Programmet starter, vent venligst...");
+
+            // Generate Male & Female names
+            GenerateMaleVulcanNames();
+            GenerateFemaleVulcanNames();
+
+            // Clear console from previous output
+            Console.Clear();
+
             // Write message to user
             Console.Write(
                 "Indtast et StarTrek navn, og få valideret om det er tilladt.\n" +
@@ -17,10 +27,6 @@ namespace StarTrek
 
             // Store input in string
             string userInput = Console.ReadLine();
-
-            // Generate Male & Female names
-            GenerateMaleVulcanNames();
-            GenerateFemaleVulcanNames();
 
             // Test if userInput is an allowed name
             if(validMaleVulcanNames.Contains(userInput) || validFemaleVulcanNames.Contains(userInput))
