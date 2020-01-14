@@ -5,16 +5,22 @@ namespace StarTrek
 {
     class Program
     {
-        static List<string> validVulcanNames = new List<string>();
+        static List<string> validMaleVulcanNames = new List<string>();
+        static List<string> validFemaleVulcanNames = new List<string>();
 
         static void Main()
         {
-            GenerateVulcanNames();
+            // Generate Male & Female names
+            GenerateMaleVulcanNames();
+            GenerateFemaleVulcanNames();
 
 
+            // Test to see if it generates correctly
+            Console.WriteLine(validMaleVulcanNames[10799]);
+            Console.WriteLine(validFemaleVulcanNames[89]);
         }
 
-        static void GenerateVulcanNames()
+        static void GenerateMaleVulcanNames()
         {
             // Arrays for name combinations 
             string[] firstArray = { "S", "Sp", "Sk", "St", "T" };
@@ -25,7 +31,7 @@ namespace StarTrek
 
 
             // Loop until all combinations have been made
-            while(validVulcanNames.Count != 10800)
+            while(validMaleVulcanNames.Count != 10800)
             {
                 Random firstRndNum = new Random();
                 int firstNumber = firstRndNum.Next(0, firstArray.Length);
@@ -42,11 +48,48 @@ namespace StarTrek
                 Random fifthRndNum = new Random();
                 int fifthNumber = fifthRndNum.Next(0, fifthArray.Length);
 
-                string name = firstArray[firstNumber] + secondArray[secondNumber] + thirdArray[thirdNumber] + fourthArray[fourthNumber] + fifthArray[fifthNumber];
+                // Combine strings
+                string maleName = firstArray[firstNumber] + secondArray[secondNumber] + thirdArray[thirdNumber] + fourthArray[fourthNumber] + fifthArray[fifthNumber];
 
-                if(!validVulcanNames.Contains(name))
+                // Check if already created
+                if(!validMaleVulcanNames.Contains(maleName))
                 {
-                    validVulcanNames.Add(name);
+                    validMaleVulcanNames.Add(maleName);
+                }
+            }
+        }
+
+        static void GenerateFemaleVulcanNames()
+        {
+            // Arrays for name combinations
+            string[] firstArray = { "T’" };
+            string[] secondArray = { "P", "K", "Q" };
+            string[] thirdArray = { "a", "e", "i", "o", "u", "y" };
+            string[] fourthArray = { "r", "j", "’p", "k", "l" };
+
+
+            // Loop untill all combinations have been made
+            while(validFemaleVulcanNames.Count != 90)
+            {
+                Random firstRndNum = new Random();
+                int firstNumber = firstRndNum.Next(0, firstArray.Length);
+
+                Random secondRndNum = new Random();
+                int secondNumber = secondRndNum.Next(0, secondArray.Length);
+
+                Random thirdRndNum = new Random();
+                int thirdNumber = thirdRndNum.Next(0, thirdArray.Length);
+
+                Random fourthRndNum = new Random();
+                int fourthNumber = fourthRndNum.Next(0, fourthArray.Length);
+
+                // Combine strings
+                string femaleName = firstArray[firstNumber] + secondArray[secondNumber] + thirdArray[thirdNumber] + fourthArray[fourthNumber];
+
+                // Check if already created
+                if(!validFemaleVulcanNames.Contains(femaleName))
+                {
+                    validFemaleVulcanNames.Add(femaleName);
                 }
             }
         }
