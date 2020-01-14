@@ -22,12 +22,16 @@ namespace StarTrek
 
         static void GenerateMaleVulcanNames()
         {
-            // Arrays for name combinations 
+            // Set of arrays for name combinations 
             string[] firstArray = { "S", "Sp", "Sk", "St", "T" };
             string[] secondArray = { "a", "e", "i", "o", "u", "y" };
             string[] thirdArray = { "r", "t", "p", "d", "f", "j", "k", "l", "v", "b", "n", "m" };
             string[] fourthArray = { "a", "e", "i", "o", "u", "y" };
             string[] fifthArray = { "q", "p", "k", "ck", "l" };
+            // Second set of arraya for name combinations 
+            string[] sixthArray = { "S", "Sp", "Sk", "St", "T" };
+            string[] seventhArray = { "a", "e", "i", "o", "u", "y" };
+            string[] eighthArray = { "q", "p", "k", "ck", "l" };
 
 
             // Loop until all combinations have been made
@@ -51,7 +55,29 @@ namespace StarTrek
                 // Combine strings
                 string maleName = firstArray[firstNumber] + secondArray[secondNumber] + thirdArray[thirdNumber] + fourthArray[fourthNumber] + fifthArray[fifthNumber];
 
-                // Check if already created
+                // Only add if not already added to the list
+                if(!validMaleVulcanNames.Contains(maleName))
+                {
+                    validMaleVulcanNames.Add(maleName);
+                }
+            }
+
+            // Loop until second set of combinations have been created
+            while(validMaleVulcanNames.Count != 10950)
+            {
+                Random sixthRndNum = new Random();
+                int sixthNumber = sixthRndNum.Next(0, sixthArray.Length);
+
+                Random seventhRndNum = new Random();
+                int seventhNumber = seventhRndNum.Next(0, seventhArray.Length);
+
+                Random eighthRndNum = new Random();
+                int eighthNumber = eighthRndNum.Next(0, eighthArray.Length);
+
+                // Combine strings
+                string maleName = sixthArray[sixthNumber] + seventhArray[seventhNumber] + eighthArray[eighthNumber];
+
+                // Only add if not already added to the list
                 if(!validMaleVulcanNames.Contains(maleName))
                 {
                     validMaleVulcanNames.Add(maleName);
@@ -86,7 +112,7 @@ namespace StarTrek
                 // Combine strings
                 string femaleName = firstArray[firstNumber] + secondArray[secondNumber] + thirdArray[thirdNumber] + fourthArray[fourthNumber];
 
-                // Check if already created
+                // Only add if not already added to the list
                 if(!validFemaleVulcanNames.Contains(femaleName))
                 {
                     validFemaleVulcanNames.Add(femaleName);
