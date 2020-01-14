@@ -28,7 +28,7 @@ namespace StarTrek
             string[] thirdArray = { "r", "t", "p", "d", "f", "j", "k", "l", "v", "b", "n", "m" };
             string[] fourthArray = { "a", "e", "i", "o", "u", "y" };
             string[] fifthArray = { "q", "p", "k", "ck", "l" };
-            // Second set of arraya for name combinations 
+            // Second set of arrays for name combinations 
             string[] sixthArray = { "S", "Sp", "Sk", "St", "T" };
             string[] seventhArray = { "a", "e", "i", "o", "u", "y" };
             string[] eighthArray = { "q", "p", "k", "ck", "l" };
