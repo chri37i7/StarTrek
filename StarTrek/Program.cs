@@ -43,7 +43,7 @@ namespace StarTrek
 
         static void GenerateMaleVulcanNames()
         {
-            // Set of arrays for name combinations 
+            // First set of arrays for name combinations 
             string[] firstArray = { "S", "Sp", "Sk", "St", "T" };
             string[] secondArray = { "a", "e", "i", "o", "u", "y" };
             string[] thirdArray = { "r", "t", "p", "d", "f", "j", "k", "l", "v", "b", "n", "m" };
@@ -56,7 +56,7 @@ namespace StarTrek
             string[] eighthArray = { "q", "p", "k", "ck", "l" };
 
 
-            // Loop until all combinations have been made
+            // Loop until first set of combinations have been made
             while(validMaleVulcanNames.Count != 10800)
             {
                 Random firstRndNum = new Random();
