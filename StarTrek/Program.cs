@@ -10,14 +10,29 @@ namespace StarTrek
 
         static void Main()
         {
+            // Write message to user
+            Console.Write(
+                "Indtast et StarTrek navn, og få valideret om det er tilladt.\n" +
+                "Indtast navn: ");
+
+            // Store input in string
+            string userInput = Console.ReadLine();
+
             // Generate Male & Female names
             GenerateMaleVulcanNames();
             GenerateFemaleVulcanNames();
 
-
-            // Test to see if it generates correctly
-            Console.WriteLine(validMaleVulcanNames[10799]);
-            Console.WriteLine(validFemaleVulcanNames[89]);
+            // Test if userInput is an allowed name
+            if(validMaleVulcanNames.Contains(userInput) || validFemaleVulcanNames.Contains(userInput))
+            {
+                // Write name is allowed
+                Console.WriteLine("\nNavnet er tilladt.");
+            }
+            else
+            {
+                // Write name is not allowed
+                Console.WriteLine("\nNavnet er ikke tilladt.");
+            }
         }
 
         static void GenerateMaleVulcanNames()
@@ -28,6 +43,7 @@ namespace StarTrek
             string[] thirdArray = { "r", "t", "p", "d", "f", "j", "k", "l", "v", "b", "n", "m" };
             string[] fourthArray = { "a", "e", "i", "o", "u", "y" };
             string[] fifthArray = { "q", "p", "k", "ck", "l" };
+
             // Second set of arrays for name combinations 
             string[] sixthArray = { "S", "Sp", "Sk", "St", "T" };
             string[] seventhArray = { "a", "e", "i", "o", "u", "y" };
